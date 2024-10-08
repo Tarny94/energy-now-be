@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ENERGY_NOW_BE.Infrastructure
-build_property.ProjectDir = C:\Personal\energy-now-be\ENERGY-NOW-BE.Infrastructure\
+build_property.ProjectDir = D:\Dev\Projects\EnergyNow\energy-now-be\ENERGY-NOW-BE.Infrastructure\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

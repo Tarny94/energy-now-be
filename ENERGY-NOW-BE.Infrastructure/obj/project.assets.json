@@ -3221,19 +3221,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Alexandru.Tarnicer\\.nuget\\packages\\": {}
+    "C:\\Users\\alext\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Personal\\energy-now-be\\ENERGY-NOW-BE.Infrastructure\\ENERGY-NOW-BE.Infrastructure.csproj",
+      "projectUniqueName": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Infrastructure\\ENERGY-NOW-BE.Infrastructure.csproj",
       "projectName": "ENERGY-NOW-BE.Infrastructure",
-      "projectPath": "C:\\Personal\\energy-now-be\\ENERGY-NOW-BE.Infrastructure\\ENERGY-NOW-BE.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\Alexandru.Tarnicer\\.nuget\\packages\\",
-      "outputPath": "C:\\Personal\\energy-now-be\\ENERGY-NOW-BE.Infrastructure\\obj\\",
+      "projectPath": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Infrastructure\\ENERGY-NOW-BE.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\alext\\.nuget\\packages\\",
+      "outputPath": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Alexandru.Tarnicer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\alext\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3248,8 +3248,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Personal\\energy-now-be\\ENERGY-NOW-BE.Core\\ENERGY-NOW-BE.Core.csproj": {
-              "projectPath": "C:\\Personal\\energy-now-be\\ENERGY-NOW-BE.Core\\ENERGY-NOW-BE.Core.csproj"
+            "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Core\\ENERGY-NOW-BE.Core.csproj": {
+              "projectPath": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Core\\ENERGY-NOW-BE.Core.csproj"
             }
           }
         }
@@ -3300,7 +3300,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
