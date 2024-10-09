@@ -1,6 +1,96 @@
 [
   {
     "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.AuthenticationController",
+    "Method": "ConfirmEmail",
+    "RelativePath": "api/Authentication/confirm-email",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ENERGY_NOW_BE.Core.Entity.Auth.ConfirmEmailModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.AuthenticationController",
+    "Method": "GenerateEmailConfirmationToken",
+    "RelativePath": "api/Authentication/generate-email-confirmation-token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ENERGY_NOW_BE.Core.Entity.Auth.EmailModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.AuthenticationController",
+    "Method": "GeneratePasswordResetToken",
+    "RelativePath": "api/Authentication/generate-password-reset-token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ENERGY_NOW_BE.Core.Entity.Auth.EmailModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.AuthenticationController",
+    "Method": "Login",
+    "RelativePath": "api/Authentication/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ENERGY_NOW_BE.Core.Entity.Auth.LoginModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.AuthenticationController",
+    "Method": "Logout",
+    "RelativePath": "api/Authentication/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.AuthenticationController",
+    "Method": "RefreshToken",
+    "RelativePath": "api/Authentication/refresh-token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ENERGY_NOW_BE.Core.Entity.Auth.TokenModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.AuthenticationController",
     "Method": "Register",
     "RelativePath": "api/Authentication/register",
     "HttpMethod": "POST",
@@ -9,10 +99,36 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "ENERGY_NOW_BE.Core.Entity.UserRegister",
+        "Type": "ENERGY_NOW_BE.Core.Entity.Auth.RegisterModel",
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.AuthenticationController",
+    "Method": "ResetPassword",
+    "RelativePath": "api/Authentication/reset-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ENERGY_NOW_BE.Core.Entity.Auth.ResetPasswordModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.UserController",
+    "Method": "GetUserOnlyData",
+    "RelativePath": "api/User/user-only",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   }
 ]

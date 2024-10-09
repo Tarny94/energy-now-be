@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ENERGY_NOW_BE.Core.Entity
+namespace ENERGY_NOW_BE.Core.Entity.Auth
 {
-    public class UserRegister
+    public class RegisterModel
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -17,8 +17,9 @@ namespace ENERGY_NOW_BE.Core.Entity
         public bool IsClient { get; set; }
 
         //public string FirmAddress { get; set; }
-        public bool IsValidClient{ get; set; }
+        public bool IsValidClient { get; set; }
         public string ClientName { get; set; }
         public int Cui { get; set; }
+        public bool IsSuperClient { get; set; }
     }
 }
