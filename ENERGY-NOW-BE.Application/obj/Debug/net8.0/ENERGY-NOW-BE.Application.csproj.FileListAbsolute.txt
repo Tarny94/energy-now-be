@@ -36,3 +36,5 @@ D:\Dev\Projects\EnergyNow\energy-now-be\ENERGY-NOW-BE.Application\obj\Debug\net8
 D:\Dev\Projects\EnergyNow\energy-now-be\ENERGY-NOW-BE.Application\obj\Debug\net8.0\refint\ENERGY-NOW-BE.Application.dll
 D:\Dev\Projects\EnergyNow\energy-now-be\ENERGY-NOW-BE.Application\obj\Debug\net8.0\ENERGY-NOW-BE.Application.pdb
 D:\Dev\Projects\EnergyNow\energy-now-be\ENERGY-NOW-BE.Application\obj\Debug\net8.0\ref\ENERGY-NOW-BE.Application.dll
+D:\Dev\Projects\EnergyNow\energy-now-be\ENERGY-NOW-BE.Application\bin\Debug\net8.0\ENERGY-NOW-BE.Infrastructure.dll
+D:\Dev\Projects\EnergyNow\energy-now-be\ENERGY-NOW-BE.Application\bin\Debug\net8.0\ENERGY-NOW-BE.Infrastructure.pdb

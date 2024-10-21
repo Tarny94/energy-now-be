@@ -22,6 +22,59 @@ namespace ENERGY_NOW_BE.Infrastructure.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
+            modelBuilder.Entity("ENERGY_NOW_BE.Core.Entity.ClientConfiguration", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Authorize")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("County")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ElectricalType")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("FirmName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("PowerAuthorize")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TicketsDone")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserID")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("isConfigured")
+                        .HasColumnType("tinyint(1)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ClientConfigurations");
+                });
+
             modelBuilder.Entity("ENERGY_NOW_BE.Core.Entity.User", b =>
                 {
                     b.Property<string>("Id")

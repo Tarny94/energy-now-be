@@ -5,12 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ENERGY_NOW_BE.Core
+namespace ENERGY_NOW_BE.Core.Interface
 {
-    public interface IUserRepository
+    public interface IUserService
     {
-        //Task<User> GetByUsernameAsync(string username);
-        //Task AddAsync(User user);
+        Task<string> ClientConfiguration(ClientConfiguration clientConfiguration);
     }
-
 }

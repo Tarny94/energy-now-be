@@ -123,6 +123,32 @@
   },
   {
     "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.UserController",
+    "Method": "ClientConfiguration",
+    "RelativePath": "api/User/configuration",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ENERGY_NOW_BE.Core.Entity.ClientConfiguration",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.UserController",
     "Method": "GetUserOnlyData",
     "RelativePath": "api/User/user-only",
     "HttpMethod": "GET",

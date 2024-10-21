@@ -17,8 +17,9 @@ builder.Services.AddSwaggerGen();
 
 // Register services for authentication
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
-builder.Services.AddScoped<UserRepository>();
-
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<UserRepository>(); 
+builder.Services.AddScoped<ClientConfigurationRepository>();
 // Configure Entity Framework and MySQL connection
 var connectionString = builder.Configuration.GetConnectionString("DevConnection");
 

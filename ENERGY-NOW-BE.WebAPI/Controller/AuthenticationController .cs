@@ -55,6 +55,7 @@ namespace ENERGY_NOW_BE.WebAPI.Controller
                 Token = result.Token,
                 ExpiresIn = result.ExpiresIn,
                 Email = result.Email,
+
             });
         }
 

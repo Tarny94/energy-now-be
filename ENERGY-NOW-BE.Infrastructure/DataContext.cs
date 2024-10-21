@@ -7,6 +7,8 @@ namespace ENERGY_NOW_BE.Infrastructure
 {
     public class DataContext : IdentityDbContext<User>
     {
+        public DbSet<ClientConfiguration> ClientConfigurations { get; set; }
+
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
         }
