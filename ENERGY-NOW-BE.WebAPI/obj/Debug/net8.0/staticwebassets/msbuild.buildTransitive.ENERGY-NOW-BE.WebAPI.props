@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\ENERGY-NOW-BE.WebAPI.props" />
+</Project>

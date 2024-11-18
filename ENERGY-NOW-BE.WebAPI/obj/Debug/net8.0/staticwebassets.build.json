@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "zdaYsV+YoqSusjsuDbP81iSwCrNlSF0AGYCTpn+WW+s=",
+  "Source": "ENERGY-NOW-BE.WebAPI",
+  "BasePath": "_content/ENERGY-NOW-BE.WebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

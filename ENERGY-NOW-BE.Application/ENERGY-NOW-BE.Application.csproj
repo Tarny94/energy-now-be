@@ -7,4 +7,19 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Auth\UserServiceBase.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Identity.EntityFramework" Version="2.2.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Portable.BouncyCastle" Version="1.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ENERGY-NOW-BE.Core\ENERGY-NOW-BE.Core.csproj" />
+    <ProjectReference Include="..\ENERGY-NOW-BE.Infrastructure\ENERGY-NOW-BE.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

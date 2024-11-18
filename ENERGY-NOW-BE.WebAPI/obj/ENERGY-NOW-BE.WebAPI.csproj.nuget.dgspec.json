@@ -4,22 +4,107 @@
     "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.WebAPI\\ENERGY-NOW-BE.WebAPI.csproj": {}
   },
   "projects": {
-    "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.WebAPI\\ENERGY-NOW-BE.WebAPI.csproj": {
+    "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Application\\ENERGY-NOW-BE.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.WebAPI\\ENERGY-NOW-BE.WebAPI.csproj",
-        "projectName": "ENERGY-NOW-BE.WebAPI",
-        "projectPath": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.WebAPI\\ENERGY-NOW-BE.WebAPI.csproj",
+        "projectUniqueName": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Application\\ENERGY-NOW-BE.Application.csproj",
+        "projectName": "ENERGY-NOW-BE.Application",
+        "projectPath": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Application\\ENERGY-NOW-BE.Application.csproj",
         "packagesPath": "C:\\Users\\alext\\.nuget\\packages\\",
-        "outputPath": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.WebAPI\\obj\\",
+        "outputPath": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\alext\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\alext\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Core\\ENERGY-NOW-BE.Core.csproj": {
+                "projectPath": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Core\\ENERGY-NOW-BE.Core.csproj"
+              },
+              "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Infrastructure\\ENERGY-NOW-BE.Infrastructure.csproj": {
+                "projectPath": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Infrastructure\\ENERGY-NOW-BE.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNet.Identity.EntityFramework": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Portable.BouncyCastle": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Core\\ENERGY-NOW-BE.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Core\\ENERGY-NOW-BE.Core.csproj",
+        "projectName": "ENERGY-NOW-BE.Core",
+        "projectPath": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Core\\ENERGY-NOW-BE.Core.csproj",
+        "packagesPath": "C:\\Users\\alext\\.nuget\\packages\\",
+        "outputPath": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\alext\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,9 +128,230 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "Microsoft.AspNet.Identity.EntityFramework": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Infrastructure\\ENERGY-NOW-BE.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Infrastructure\\ENERGY-NOW-BE.Infrastructure.csproj",
+        "projectName": "ENERGY-NOW-BE.Infrastructure",
+        "projectPath": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Infrastructure\\ENERGY-NOW-BE.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\alext\\.nuget\\packages\\",
+        "outputPath": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\alext\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Core\\ENERGY-NOW-BE.Core.csproj": {
+                "projectPath": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Core\\ENERGY-NOW-BE.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNet.Identity.EntityFramework": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.WebAPI\\ENERGY-NOW-BE.WebAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.WebAPI\\ENERGY-NOW-BE.WebAPI.csproj",
+        "projectName": "ENERGY-NOW-BE.WebAPI",
+        "projectPath": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.WebAPI\\ENERGY-NOW-BE.WebAPI.csproj",
+        "packagesPath": "C:\\Users\\alext\\.nuget\\packages\\",
+        "outputPath": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.WebAPI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\alext\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Application\\ENERGY-NOW-BE.Application.csproj": {
+                "projectPath": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Application\\ENERGY-NOW-BE.Application.csproj"
+              },
+              "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Infrastructure\\ENERGY-NOW-BE.Infrastructure.csproj": {
+                "projectPath": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\ENERGY-NOW-BE.Infrastructure\\ENERGY-NOW-BE.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[8.0.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

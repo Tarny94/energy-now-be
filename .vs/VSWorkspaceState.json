@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\ENERGY-NOW-BE.Application",
+    "\\ENERGY-NOW-BE.Application\\Auth",
+    "\\ENERGY-NOW-BE.Core",
+    "\\ENERGY-NOW-BE.Core\\auth",
+    "\\ENERGY-NOW-BE.Infrastructure",
+    "\\ENERGY-NOW-BE.WebAPI",
+    "\\ENERGY-NOW-BE.WebAPI\\Controller"
+  ],
+  "SelectedNode": "\\ENERGY-NOW-BE.Core\\IUserRepository.cs",
+  "PreviewInSolutionExplorer": false
+}

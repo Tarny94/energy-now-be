@@ -1,0 +1,6 @@
+C:\Personal\energy-now-be\obj\Debug\net8.0\energy-now-be.csproj.AssemblyReference.cache
+C:\Personal\energy-now-be\obj\Debug\net8.0\energy-now-be.GeneratedMSBuildEditorConfig.editorconfig
+C:\Personal\energy-now-be\obj\Debug\net8.0\energy-now-be.AssemblyInfoInputs.cache
+C:\Personal\energy-now-be\obj\Debug\net8.0\energy-now-be.AssemblyInfo.cs
+C:\Personal\energy-now-be\obj\Debug\net8.0\energy-now-be.csproj.CoreCompileInputs.cache
+C:\Personal\energy-now-be\obj\Debug\net8.0\energy-now-be.sourcelink.json

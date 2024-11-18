@@ -1,25 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\energy-now-be.csproj": {}
+    "C:\\Personal\\energy-now-be\\energy-now-be.csproj": {}
   },
   "projects": {
-    "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\energy-now-be.csproj": {
+    "C:\\Personal\\energy-now-be\\energy-now-be.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\energy-now-be.csproj",
+        "projectUniqueName": "C:\\Personal\\energy-now-be\\energy-now-be.csproj",
         "projectName": "energy-now-be",
-        "projectPath": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\energy-now-be.csproj",
-        "packagesPath": "C:\\Users\\alext\\.nuget\\packages\\",
-        "outputPath": "D:\\Dev\\Projects\\EnergyNow\\energy-now-be\\obj\\",
+        "projectPath": "C:\\Personal\\energy-now-be\\energy-now-be.csproj",
+        "packagesPath": "C:\\Users\\Alexandru.Tarnicer\\.nuget\\packages\\",
+        "outputPath": "C:\\Personal\\energy-now-be\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\alext\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Alexandru.Tarnicer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -42,6 +45,50 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -58,7 +105,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
