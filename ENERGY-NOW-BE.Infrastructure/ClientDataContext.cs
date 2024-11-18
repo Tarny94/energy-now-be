@@ -15,6 +15,6 @@ namespace ENERGY_NOW_BE.Infrastructure
         {
         }
 
-        public DbSet<ClientDetails> ClientDetails { get; set; }
+        public DbSet<ClientConfiguration> ClientDetails { get; set; }
     }
 }

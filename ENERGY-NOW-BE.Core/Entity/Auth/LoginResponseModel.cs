@@ -10,8 +10,8 @@ namespace ENERGY_NOW_BE.Core.Entity.Auth
     {
         public string Token { get; set; }
         public DateTime ExpiresIn { get; set; }
-        public string Email { get; set; }
-
+        public string UserId { get; set; }
+        public IList<string> UserRole { get; set; }
     }
 
 }

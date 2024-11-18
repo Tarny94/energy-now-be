@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ENERGY_NOW_BE.Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241021171554_AddClientConfigurationEntity")]
-    partial class AddClientConfigurationEntity
+    [Migration("20241118182319_AddClientConfigurationEntity7")]
+    partial class AddClientConfigurationEntity7
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,16 +27,18 @@ namespace ENERGY_NOW_BE.Infrastructure.Migrations
 
             modelBuilder.Entity("ENERGY_NOW_BE.Core.Entity.ClientConfiguration", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("UserId")
+                        .HasColumnType("varchar(255)");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<bool>("Authorize")
-                        .HasColumnType("tinyint(1)");
+                    b.Property<string>("Avatar")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ClientName")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -44,36 +46,33 @@ namespace ENERGY_NOW_BE.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Cui")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("ElectricalType")
+                    b.Property<string>("Details")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("FirmName")
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<bool>("IsAuthorizated")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("IsConfirmed")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("PowerAuthorize")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TicketsDone")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserID")
+                    b.Property<string>("Specialization")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<bool>("isConfigured")
-                        .HasColumnType("tinyint(1)");
-
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.ToTable("ClientConfigurations");
                 });
@@ -86,16 +85,9 @@ namespace ENERGY_NOW_BE.Infrastructure.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("ClientName")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("longtext");
-
-                    b.Property<int>("Cui")
-                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -108,7 +100,7 @@ namespace ENERGY_NOW_BE.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<bool>("IsValidClient")
+                    b.Property<bool>("IsAClient")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("LastName")

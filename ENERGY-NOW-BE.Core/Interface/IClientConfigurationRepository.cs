@@ -9,7 +9,7 @@ namespace ENERGY_NOW_BE.Core.Interface
 {
     public interface IClientConfigurationRepository
     {
-        Task<ClientConfiguration> GetClientConfigurationByIdAsync(int id);
+        //Task<ClientConfiguration> GetClientConfigurationByIdAsync(int id);
         Task<IEnumerable<ClientConfiguration>> GetAllClientConfigurationsAsync();
         Task AddClientConfigurationAsync(ClientConfiguration clientConfiguration);
         Task UpdateClientConfigurationAsync(ClientConfiguration clientConfiguration);

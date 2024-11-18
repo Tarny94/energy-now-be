@@ -18,11 +18,11 @@ namespace ENERGY_NOW_BE.Infrastructure
             _context = context;
         }
 
-        public async Task<ClientConfiguration> GetClientConfigurationByIdAsync(int id)
-        {
-            return await _context.ClientConfigurations
-                                 .FirstOrDefaultAsync(c => c.Id == id);
-        }
+        //public async Task<ClientConfiguration> GetClientConfigurationByIdAsync(int id)
+        //{
+        //    return await _context.ClientConfigurations
+        //                         .FirstOrDefaultAsync(c => c.Id == id);
+        //}
 
         public async Task<IEnumerable<ClientConfiguration>> GetAllClientConfigurationsAsync()
         {

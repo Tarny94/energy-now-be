@@ -24,12 +24,5 @@ namespace ENERGY_NOW_BE.WebAPI.Controller
         {
             return Ok(new { message = "This is user-only data." });
         }
-
-        [HttpPost("configuration")]
-        [Authorize(Policy = "ClientAccess")]
-        public async Task<string> ClientConfiguration([FromBody] ClientConfiguration model)
-        {
-            return await _userService.ClientConfiguration(model);
-        }
     }
 }

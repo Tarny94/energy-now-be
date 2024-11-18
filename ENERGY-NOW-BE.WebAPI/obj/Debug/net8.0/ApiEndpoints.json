@@ -122,9 +122,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.UserController",
+    "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.ClientController",
     "Method": "ClientConfiguration",
-    "RelativePath": "api/User/configuration",
+    "RelativePath": "api/Client/configuration",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
