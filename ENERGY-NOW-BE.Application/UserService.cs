@@ -5,10 +5,10 @@ using ENERGY_NOW_BE.Infrastructure;
 using Microsoft.AspNetCore.Identity;
 
 
-namespace ENERGY_NOW_BE.Application.Auth
+namespace ENERGY_NOW_BE.Application
 {
     public class UserService : IUserService
-    { 
+    {
 
         private readonly UserManager<User> _userManager;
 

@@ -7,6 +7,7 @@ using ENERGY_NOW_BE.Core.Interface;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using ENERGY_NOW_BE.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,8 +20,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IClientService, ClientService>();
+builder.Services.AddScoped<IAdminService, AdminService>();
+
 builder.Services.AddScoped<UserRepository>(); 
 builder.Services.AddScoped<ClientConfigurationRepository>();
+
 // Configure Entity Framework and MySQL connection
 var connectionString = builder.Configuration.GetConnectionString("DevConnection");
 

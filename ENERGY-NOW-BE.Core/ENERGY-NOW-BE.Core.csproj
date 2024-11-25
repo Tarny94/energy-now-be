@@ -15,7 +15,10 @@
 
   <ItemGroup>
     <Compile Remove="Entity\Client.cs" />
+    <Compile Remove="Entity\GetFilteredClientsResponse.cs" />
     <Compile Remove="Enum\UserRoles.cs" />
+    <Compile Remove="Interface\AdminRepository.cs" />
+    <Compile Remove="Interface\IClientRepository.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,10 +40,6 @@
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.1.0" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.1.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Enum\" />
   </ItemGroup>
 
 </Project>

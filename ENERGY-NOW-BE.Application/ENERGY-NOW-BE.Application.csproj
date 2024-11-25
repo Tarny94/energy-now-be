@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Auth\UserServiceBase.cs" />
+    <Compile Remove="AuthService\UserServiceBase.cs" />
   </ItemGroup>
 
   <ItemGroup>

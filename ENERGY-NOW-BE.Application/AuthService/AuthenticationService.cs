@@ -148,7 +148,7 @@ namespace ENERGY_NOW_BE.Application.Auth
                 FirstName = newUser.FirstName,
                 LastName = newUser.LastName,
                 Email = newUser.Email,
-                IsAClient = newUser.IsAClient,
+                IsAClient = false,
             };
         }
 

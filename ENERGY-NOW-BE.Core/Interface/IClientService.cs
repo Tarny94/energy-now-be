@@ -9,6 +9,7 @@ namespace ENERGY_NOW_BE.Core.Interface
 {
     public interface IClientService
     {
-        Task<string> ClientConfiguration(ClientConfiguration clientConfiguration);
+        Task<string> ClientConfiguration(ClientRequest clientConfiguration);
+
     }
 }

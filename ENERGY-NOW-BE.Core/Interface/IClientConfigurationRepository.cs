@@ -1,4 +1,5 @@
 ﻿using ENERGY_NOW_BE.Core.Entity;
+using ENERGY_NOW_BE.Core.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,13 @@ namespace ENERGY_NOW_BE.Core.Interface
 {
     public interface IClientConfigurationRepository
     {
-        //Task<ClientConfiguration> GetClientConfigurationByIdAsync(int id);
-        Task<IEnumerable<ClientConfiguration>> GetAllClientConfigurationsAsync();
-        Task AddClientConfigurationAsync(ClientConfiguration clientConfiguration);
-        Task UpdateClientConfigurationAsync(ClientConfiguration clientConfiguration);
-        Task DeleteClientConfigurationAsync(int id);
+        Task<Client> GetClientConfigurationByIdAsync(string id);
+        Task<List<Client>> GetAllClientConfigurationsAsync();
+        Task AddClientConfigurationAsync(Client clientConfiguration);
+        Task AddSpecializationsToClient(Guid clientId, List<Specialization> specializations);
+        Task<List<Client>> GetClientsBySpecializations(List<Specialization> specializations);
+        Task<List<Specialization>> GetSpecializationsForClient(Guid clientId);
+        Task UpdateClientConfigurationAsync(Client clientConfiguration);
+        Task DeleteClientConfigurationAsync(string id);
     }
 }

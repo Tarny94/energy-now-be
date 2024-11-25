@@ -18,7 +18,7 @@ namespace ENERGY_NOW_BE.WebAPI.Controller
 
         [HttpPost("configuration")]
         [Authorize(Policy = "UserAccess")]
-        public async Task<string> ClientConfiguration([FromBody] ClientConfiguration model)
+        public async Task<string> ClientConfiguration([FromBody] ClientRequest model)
         {
             return await _clientService.ClientConfiguration(model);
         }
