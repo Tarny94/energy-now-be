@@ -11,5 +11,7 @@ namespace ENERGY_NOW_BE.Core.Interface
     {
         Task<string> ClientConfiguration(ClientRequest clientConfiguration);
 
+        Task<List<GetFilteredClientResponse>> GetFilteredClients(GetFilteredClientRequest filteredClient); 
+
     }
 }

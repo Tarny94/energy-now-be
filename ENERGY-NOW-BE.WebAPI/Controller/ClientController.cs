@@ -22,5 +22,11 @@ namespace ENERGY_NOW_BE.WebAPI.Controller
         {
             return await _clientService.ClientConfiguration(model);
         }
+
+        [HttpPost("list")]
+        public async Task<List<GetFilteredClientResponse>> GetFilteredClients([FromBody] GetFilteredClientRequest model)
+        {
+            return await _clientService.GetFilteredClients(model);
+        }
     }
 }

@@ -11,6 +11,6 @@ namespace ENERGY_NOW_BE.Core.Entity
     {
         public string County { get; set; }
         public string City { get; set; }
-        public List<ClientSpecialization> Specializations { get; set; }
+        public List<Specialization> Specializations { get; set; }
     }
 }

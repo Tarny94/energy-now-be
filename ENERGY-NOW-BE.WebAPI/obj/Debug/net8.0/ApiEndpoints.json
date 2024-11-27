@@ -194,6 +194,32 @@
     ]
   },
   {
+    "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.ClientController",
+    "Method": "GetFilteredClients",
+    "RelativePath": "api/Client/list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ENERGY_NOW_BE.Core.Entity.GetFilteredClientRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ENERGY_NOW_BE.Core.Entity.GetFilteredClientResponse, ENERGY-NOW-BE.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.UserController",
     "Method": "GetUserOnlyData",
     "RelativePath": "api/User/user-only",

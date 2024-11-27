@@ -29,7 +29,8 @@ namespace ENERGY_NOW_BE.Application
                 var user = await _userManager.FindByIdAsync(client.UserId);
 
                 if (user == null) return "User not exist!!!";
-                Client clientCheck = await _clientConfigurationRepository.GetClientConfigurationByIdAsync(client.UserId);
+
+                Client clientCheck = await _clientConfigurationRepository.GetClientConfigurationByUserIdAsync(user.Id);
 
                 if (clientCheck != null && clientCheck.UserId == client.UserId) return "Client already configured";
 
@@ -37,7 +38,7 @@ namespace ENERGY_NOW_BE.Application
 
                 await _clientConfigurationRepository.AddClientConfigurationAsync(clientConfiguration);
 
-                Client result = await _clientConfigurationRepository.GetClientConfigurationByIdAsync(client.UserId);
+                Client result = await _clientConfigurationRepository.GetClientConfigurationByUserIdAsync(client.UserId);
 
                 await _clientConfigurationRepository.AddSpecializationsToClient(result.Id, client.Specialization);
 
@@ -47,6 +48,91 @@ namespace ENERGY_NOW_BE.Application
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public async Task<List<GetFilteredClientResponse>> GetFilteredClients(GetFilteredClientRequest filteredClient)
+        {
+            List<GetFilteredClientResponse> clientResponses = new List<GetFilteredClientResponse>();
+
+            if (filteredClient.County != "" && filteredClient.City == "" && filteredClient.Specializations.Count == 0)
+            {
+                var result = await _clientConfigurationRepository.GetClientsFilteredByCounty(filteredClient.County);
+
+                if (result == null) throw new Exception("Something went Wrong with county Filter");
+
+                var responseTask = result.Select(async client => new GetFilteredClientResponse
+                {
+                    Id = client.Id,
+                    Icon = client.Icon,
+                    ClientName = client.ClientName,
+                    Email = client.Email,
+                    County = client.County,
+                    City = client.City,
+                    Review = 0, //TODO
+                    Phone = client.Phone,
+                    Specializations = await _clientConfigurationRepository.GetSpecializationsForClient(client.Id),
+                    Authorize = client.IsAuthorizated,
+                    Description = client.Details
+                });
+
+                var responseList = await Task.WhenAll(responseTask);
+
+                return responseList.ToList();
+            }
+
+            if (filteredClient.County != "" && filteredClient.City != "" && filteredClient.Specializations.Count == 0)
+            {
+                var result = await _clientConfigurationRepository.GetClientsFilteredByCountyAndCity(filteredClient.County, filteredClient.City);
+
+                if (result == null) throw new Exception("Something went Wrong with county Filter");
+
+                var responseTask = result.Select(async client => new GetFilteredClientResponse
+                {
+                    Id = client.Id,
+                    Icon = client.Icon,
+                    ClientName = client.ClientName,
+                    Email = client.Email,
+                    County = client.County,
+                    City = client.City,
+                    Review = 0, //TODO
+                    Phone = client.Phone,
+                    Specializations = await _clientConfigurationRepository.GetSpecializationsForClient(client.Id),
+                    Authorize = client.IsAuthorizated,
+                    Description = client.Details
+                });
+
+                var responseList = await Task.WhenAll(responseTask);
+
+                return responseList.ToList();
+            }
+
+            if (filteredClient.County == "" && filteredClient.City == "" && filteredClient.Specializations.Count != 0)
+            {
+                var result = await _clientConfigurationRepository.GetClientsBySpecializations(filteredClient.Specializations);
+
+                if (result == null) throw new Exception("Something went Wrong with county Filter");
+
+                var responseTask = result.Select(async client => !client.IsConfirmed ? null : new GetFilteredClientResponse
+                {
+                    Id = client.Id,
+                    Icon = client.Icon,
+                    ClientName = client.ClientName,
+                    Email = client.Email,
+                    County = client.County,
+                    City = client.City,
+                    Review = 0, //TODO
+                    Phone = client.Phone,
+                    Specializations = await _clientConfigurationRepository.GetSpecializationsForClient(client.Id),
+                    Authorize = client.IsAuthorizated,
+                    Description = client.Details
+                });
+
+                var responseList = await Task.WhenAll(responseTask);
+
+                return responseList.ToList();
+            }
+
+            return null;
         }
 
         private Client CreateClientForDB(ClientRequest clientConfigurationRequest)
