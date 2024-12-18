@@ -63,7 +63,6 @@ namespace ENERGY_NOW_BE.Infrastructure
             await _context.SaveChangesAsync();
         }
 
-
         public async Task<List<Client>> GetClientsBySpecializations(List<Specialization> specializations)
         {
             return _context.ClientConfigurations
@@ -83,21 +82,6 @@ namespace ENERGY_NOW_BE.Infrastructure
                 return new List<Specialization>();
 
             return specializations;
-        }
-
-
-
-
-
-
-        public Task<List<Client>> GetAllFilteredClients(string County, string City)
-        {
-            //List<ClientConfiguration> result = _context.ClientConfigurations
-            //    .Where(e => e.County == County)
-            //    .Where(e => e.City == City)
-            //    .Where(e => e.Specialization.Any(s => specializations)
-            //    .ToList();
-            return null;
         }
 
         public async Task AddClientConfigurationAsync(Client clientConfiguration)
@@ -122,14 +106,12 @@ namespace ENERGY_NOW_BE.Infrastructure
             }
         }
 
-        public Task<List<Client>> GetClientsFilteredBySpecializations(List<Specialization> specializationss)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<List<Client>> GetClientsFilteredByCounty(string county)
         {
-            List<Client> result = _context.ClientConfigurations.Where(e => e.County == county).Where(e => e.IsConfirmed == true).ToList();
+            List<Client> result = _context.ClientConfigurations
+                .Where(e => e.County == county)
+                .Where(e => e.IsConfirmed == true)
+                .ToList();
 
             if (result == null) throw new Exception($"Something went wrong with filtering Clients by County: {county}");
 
@@ -139,16 +121,38 @@ namespace ENERGY_NOW_BE.Infrastructure
 
         public async Task<List<Client>> GetClientsFilteredByCountyAndCity(string county, string city)
         {
-            List<Client> result = _context.ClientConfigurations.Where(e => e.County == county).Where(e => e.City == city).Where(e => e.IsConfirmed == true).ToList();
+            List<Client> result = _context.ClientConfigurations
+                .Where(e => e.County == county)
+                .Where(e => e.City == city)
+                .Where(e => e.IsConfirmed == true)
+                .ToList();
 
-            if (result == null) throw new Exception($"Something went wrong with filtering Clients by County: {county}");
+            if (result == null) throw new Exception($"Something went wrong with filtering Clients by County: {county} and City: {city}");
 
             return result;
         }
 
-        public Task<List<Client>> GetClientsFilteredByCountyCityAndSpecialization(string county, string city, List<Specialization> specializations)
+        public async Task<List<Client>> GetClientsFilteredByCountyCityAndSpecialization(string county, string city, List<Specialization> specializations)
         {
-            throw new NotImplementedException();
+            List<Client> clients = await GetClientsBySpecializations(specializations);
+
+            if (clients == null) throw new Exception("No client provided with these specializations");
+
+            return clients
+                .Where(c => c.County == county)
+                .Where(c => c.City == city)
+                .ToList(); 
+        }
+
+        public async Task<List<Client>> GetClientsFilteredByCountyAndSpecialization(string county, List<Specialization> specializations)
+        {
+            List<Client> clients = await GetClientsBySpecializations(specializations);
+
+            if (clients == null) throw new Exception("No client provided with these specializations");
+
+            return clients
+                .Where(c => c.County == county)
+                .ToList();
         }
     }
 }

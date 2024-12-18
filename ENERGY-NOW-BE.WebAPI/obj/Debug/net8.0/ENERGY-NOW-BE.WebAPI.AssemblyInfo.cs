@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ENERGY-NOW-BE.WebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2dc694985e836fa29f1743222dcbd518bb787c79")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+53966af9b069673667fb2dd836e0b4a16afd3057")]
 [assembly: System.Reflection.AssemblyProductAttribute("ENERGY-NOW-BE.WebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ENERGY-NOW-BE.WebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

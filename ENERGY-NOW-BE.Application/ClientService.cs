@@ -132,6 +132,58 @@ namespace ENERGY_NOW_BE.Application
                 return responseList.ToList();
             }
 
+            if(filteredClient.County != "" && filteredClient.City != "" && filteredClient.Specializations.Count != 0)
+            {
+                var result = await _clientConfigurationRepository.GetClientsFilteredByCountyCityAndSpecialization(filteredClient.County, filteredClient.City, filteredClient.Specializations);
+
+                if (result == null) throw new Exception("Something went Wrong with county Filter");
+
+                var responseTask = result.Select(async client => !client.IsConfirmed ? null : new GetFilteredClientResponse
+                {
+                    Id = client.Id,
+                    Icon = client.Icon,
+                    ClientName = client.ClientName,
+                    Email = client.Email,
+                    County = client.County,
+                    City = client.City,
+                    Review = 0, //TODO
+                    Phone = client.Phone,
+                    Specializations = await _clientConfigurationRepository.GetSpecializationsForClient(client.Id),
+                    Authorize = client.IsAuthorizated,
+                    Description = client.Details
+                });
+
+                var responseList = await Task.WhenAll(responseTask);
+
+                return responseList.ToList();
+            }
+
+            if (filteredClient.County != "" && filteredClient.City == "" && filteredClient.Specializations.Count != 0)
+            {
+                var result = await _clientConfigurationRepository.GetClientsFilteredByCountyAndSpecialization(filteredClient.County, filteredClient.Specializations);
+
+                if (result == null) throw new Exception("Something went Wrong with county Filter");
+
+                var responseTask = result.Select(async client => !client.IsConfirmed ? null : new GetFilteredClientResponse
+                {
+                    Id = client.Id,
+                    Icon = client.Icon,
+                    ClientName = client.ClientName,
+                    Email = client.Email,
+                    County = client.County,
+                    City = client.City,
+                    Review = 0, //TODO
+                    Phone = client.Phone,
+                    Specializations = await _clientConfigurationRepository.GetSpecializationsForClient(client.Id),
+                    Authorize = client.IsAuthorizated,
+                    Description = client.Details
+                });
+
+                var responseList = await Task.WhenAll(responseTask);
+
+                return responseList.ToList();
+            }
+
             return null;
         }
 
