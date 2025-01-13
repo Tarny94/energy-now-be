@@ -23,7 +23,7 @@
     "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.AdminController",
     "Method": "ClientConfirmation",
     "RelativePath": "api/Admin/client/confirmation",
-    "HttpMethod": "POST",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [

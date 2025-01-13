@@ -10,7 +10,7 @@ namespace ENERGY_NOW_BE.Core.Entity
 {
     public class AdminClientsListResponse
     {
-        public Guid ClientId { get; set; }
+        public Guid Id { get; set; }
         public string UserId { get; set; }
         public string Cui { get; set; }
         public string ClientName { get; set; }

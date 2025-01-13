@@ -23,7 +23,7 @@ namespace ENERGY_NOW_BE.WebAPI.Controller
             return await _adminService.GetAdminClientList();
         }
 
-        [HttpPost("client/confirmation")]
+        [HttpPut("client/confirmation")]
         [Authorize(Policy = "AdminAccess")]
         public async Task<string> ClientConfirmation([FromBody] ConfirmClient confirmClient)
         {

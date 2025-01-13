@@ -25,6 +25,16 @@ builder.Services.AddScoped<IAdminService, AdminService>();
 builder.Services.AddScoped<UserRepository>(); 
 builder.Services.AddScoped<ClientConfigurationRepository>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000") // React app origin
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 // Configure Entity Framework and MySQL connection
 var connectionString = builder.Configuration.GetConnectionString("DevConnection");
 
@@ -87,6 +97,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("AllowReactApp");
 
 // Enable HTTPS Redirection, Authentication, and Authorization
 app.UseHttpsRedirection();

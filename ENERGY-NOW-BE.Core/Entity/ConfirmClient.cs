@@ -8,7 +8,7 @@ namespace ENERGY_NOW_BE.Core.Entity
 {
     public class ConfirmClient
     {
-        public string ClientId { get; set; }
+        public string Id { get; set; }
 
         public string UserId { get; set; }
 

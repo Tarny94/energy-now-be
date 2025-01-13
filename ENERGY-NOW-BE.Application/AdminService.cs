@@ -28,7 +28,7 @@ namespace ENERGY_NOW_BE.Application
             try
             {
                 User user = await _userManager.FindByIdAsync(confirmClient.UserId);
-                Client client = await _clientConfigurationRepository.GetClientConfigurationByIdAsync(confirmClient.ClientId);
+                Client client = await _clientConfigurationRepository.GetClientConfigurationByIdAsync(confirmClient.Id);
 
                 if (user == null || client == null) return "User / Client not exist!!!";
 
@@ -56,7 +56,7 @@ namespace ENERGY_NOW_BE.Application
 
             var adminClientTasks = clientListDB.Select(async client => new AdminClientsListResponse
             {
-                ClientId = client.Id,
+                Id = client.Id,
                 UserId = client.UserId,
                 Cui = client.Cui,
                 Phone = client.Phone,

@@ -33,7 +33,11 @@ namespace ENERGY_NOW_BE.Application.Auth
         {
             ArgumentNullException.ThrowIfNull(userRegister);
             if (!IsValidEmail(userRegister.Email)) return IdentityResult.Failed(new IdentityError { Code = "InvalidEmail", Description = "The email format is invalid." });
-
+            if(IsNotEmptyOrTrimValue(userRegister.FirstName) || IsNotEmptyOrTrimValue(userRegister.LastName))
+            {
+                return IdentityResult.Failed(new IdentityError { Code = "InvalidNameFormat", Description = "The First or Last name is empty, or contains only whitespace." });
+            }
+            
             var user = CreateAnUser(userRegister);
             var result = await _userManager.CreateAsync(user, userRegister.Password);
 
@@ -64,7 +68,7 @@ namespace ENERGY_NOW_BE.Application.Auth
             return new LoginResponseModel
             {
                 Token = token,
-                ExpiresIn = DateTime.UtcNow.AddHours(1),  // Example expiration time
+                ExpiresIn = DateTime.UtcNow.AddDays(5),  // Example expiration time
                 UserId = user.Id,
                 UserRole = userRole,
             };
@@ -163,6 +167,16 @@ namespace ENERGY_NOW_BE.Application.Auth
             {
                 return false;
             }
+        }
+
+        private bool IsNotEmptyOrTrimValue(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private string GetUserIdFromToken(string token)
