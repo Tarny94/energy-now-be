@@ -1,5 +1,51 @@
 [
   {
+    "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.AdminController",
+    "Method": "GetClientList",
+    "RelativePath": "api/Admin/client",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ENERGY_NOW_BE.Core.Entity.AdminClientsListResponse, ENERGY-NOW-BE.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.AdminController",
+    "Method": "ClientConfirmation",
+    "RelativePath": "api/Admin/client/confirmation",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "confirmClient",
+        "Type": "ENERGY_NOW_BE.Core.Entity.ConfirmClient",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.AuthenticationController",
     "Method": "ConfirmEmail",
     "RelativePath": "api/Authentication/confirm-email",
@@ -122,22 +168,48 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.UserController",
+    "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.ClientController",
     "Method": "ClientConfiguration",
-    "RelativePath": "api/User/configuration",
+    "RelativePath": "api/Client/configuration",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "model",
-        "Type": "ENERGY_NOW_BE.Core.Entity.ClientConfiguration",
+        "Type": "ENERGY_NOW_BE.Core.Entity.ClientRequest",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
         "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ENERGY_NOW_BE.WebAPI.Controller.ClientController",
+    "Method": "GetFilteredClients",
+    "RelativePath": "api/Client/list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ENERGY_NOW_BE.Core.Entity.GetFilteredClientRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ENERGY_NOW_BE.Core.Entity.GetFilteredClientResponse, ENERGY-NOW-BE.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

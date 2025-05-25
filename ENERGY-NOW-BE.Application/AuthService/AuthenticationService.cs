@@ -31,15 +31,19 @@ namespace ENERGY_NOW_BE.Application.Auth
 
         public async Task<IdentityResult> RegisterUser(RegisterModel userRegister)
         {
-            if (userRegister == null) throw new ArgumentNullException(nameof(userRegister));
+            ArgumentNullException.ThrowIfNull(userRegister);
             if (!IsValidEmail(userRegister.Email)) return IdentityResult.Failed(new IdentityError { Code = "InvalidEmail", Description = "The email format is invalid." });
-
-            var user = userRegister.IsClient ? CreateAClient(userRegister) : CreateAnUser(userRegister);
+            if(IsNotEmptyOrTrimValue(userRegister.FirstName) || IsNotEmptyOrTrimValue(userRegister.LastName))
+            {
+                return IdentityResult.Failed(new IdentityError { Code = "InvalidNameFormat", Description = "The First or Last name is empty, or contains only whitespace." });
+            }
+            
+            var user = CreateAnUser(userRegister);
             var result = await _userManager.CreateAsync(user, userRegister.Password);
 
             if (result.Succeeded)
             {
-                await AssignRoleToUser(user, userRegister.IsClient, userRegister.IsSuperClient);
+                await _userManager.AddToRoleAsync(user, "USER");
             }
 
             return result;
@@ -56,14 +60,17 @@ namespace ENERGY_NOW_BE.Application.Auth
                 return null; // Or handle invalid password
             }
 
+            var userRole = await _userManager.GetRolesAsync(user);
+
             // Generate token
             var token = await GenerateJwtToken(user);
 
             return new LoginResponseModel
             {
                 Token = token,
-                ExpiresIn = DateTime.UtcNow.AddHours(1),  // Example expiration time
-                Email = user.Email
+                ExpiresIn = DateTime.UtcNow.AddDays(5),  // Example expiration time
+                UserId = user.Id,
+                UserRole = userRole,
             };
         }
 
@@ -142,26 +149,10 @@ namespace ENERGY_NOW_BE.Application.Auth
             return new User
             {
                 UserName = newUser.Email,
-                ClientName = newUser.ClientName,
                 FirstName = newUser.FirstName,
                 LastName = newUser.LastName,
                 Email = newUser.Email,
-                PhoneNumber = newUser.PhoneNumber,
-                IsValidClient = newUser.IsValidClient,
-                Cui = newUser.Cui
-            };
-        }
-
-        private User CreateAClient(RegisterModel newUser)
-        {
-            return new User
-            {
-                UserName = newUser.Email,
-                ClientName = newUser.ClientName,
-                FirstName = newUser.FirstName,
-                LastName = newUser.LastName,
-                Email = newUser.Email,
-                PhoneNumber = newUser.PhoneNumber
+                IsAClient = false,
             };
         }
 
@@ -176,6 +167,16 @@ namespace ENERGY_NOW_BE.Application.Auth
             {
                 return false;
             }
+        }
+
+        private bool IsNotEmptyOrTrimValue(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private string GetUserIdFromToken(string token)
@@ -194,7 +195,7 @@ namespace ENERGY_NOW_BE.Application.Auth
         {
             var claims = new List<Claim>
         {
-            new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+            new Claim(JwtRegisteredClaimNames.Sub, user.Email),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(ClaimTypes.NameIdentifier, user.Id),
             new Claim(ClaimTypes.Email, user.Email)

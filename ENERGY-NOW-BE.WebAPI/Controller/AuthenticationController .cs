@@ -43,7 +43,7 @@ namespace ENERGY_NOW_BE.WebAPI.Controller
             var cookieOptions = new CookieOptions
             {
                 HttpOnly = true,
-                Secure = true, // Set to true in production
+                Secure = false, // Set to true in production
                 SameSite = SameSiteMode.Strict, // Adjust based on your needs
                 Expires = DateTime.UtcNow.AddHours(1) // Set expiration as needed
             };
@@ -54,7 +54,8 @@ namespace ENERGY_NOW_BE.WebAPI.Controller
             {
                 Token = result.Token,
                 ExpiresIn = result.ExpiresIn,
-                Email = result.Email,
+                UserID = result.UserId,
+                Role = result.UserRole
 
             });
         }

@@ -7,6 +7,7 @@ using ENERGY_NOW_BE.Core.Interface;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using ENERGY_NOW_BE.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,8 +19,22 @@ builder.Services.AddSwaggerGen();
 // Register services for authentication
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IClientService, ClientService>();
+builder.Services.AddScoped<IAdminService, AdminService>();
+
 builder.Services.AddScoped<UserRepository>(); 
 builder.Services.AddScoped<ClientConfigurationRepository>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000") // React app origin
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 // Configure Entity Framework and MySQL connection
 var connectionString = builder.Configuration.GetConnectionString("DevConnection");
 
@@ -82,6 +97,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("AllowReactApp");
 
 // Enable HTTPS Redirection, Authentication, and Authorization
 app.UseHttpsRedirection();

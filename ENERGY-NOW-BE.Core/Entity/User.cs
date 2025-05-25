@@ -6,9 +6,9 @@ namespace ENERGY_NOW_BE.Core.Entity
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string ClientName { get; set; }
-        public bool IsValidClient { get; set; }
-        public int Cui { get; set; }
-    }
+        public bool IsAClient { get; set; }
 
+        public ICollection<Client> Client { get; set; }
+
+    }
 }

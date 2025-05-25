@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ENERGY_NOW_BE.Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241021171554_AddClientConfigurationEntity")]
-    partial class AddClientConfigurationEntity
+    [Migration("20241121190746_AddSpecializationTable5434")]
+    partial class AddSpecializationTable5434
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,18 +25,21 @@ namespace ENERGY_NOW_BE.Infrastructure.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("ENERGY_NOW_BE.Core.Entity.ClientConfiguration", b =>
+            modelBuilder.Entity("ENERGY_NOW_BE.Core.Entity.Client", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("char(36)");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<bool>("Authorize")
-                        .HasColumnType("tinyint(1)");
+                    b.Property<string>("Avatar")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ClientName")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -44,38 +47,50 @@ namespace ENERGY_NOW_BE.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Cui")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("ElectricalType")
+                    b.Property<string>("Details")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("FirmName")
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<bool>("IsAuthorizated")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("IsConfirmed")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("PowerAuthorize")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TicketsDone")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserID")
+                    b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<bool>("isConfigured")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("ClientConfigurations");
+                });
+
+            modelBuilder.Entity("ENERGY_NOW_BE.Core.Entity.ClientSpecialization", b =>
+                {
+                    b.Property<Guid>("ClientId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Specialization")
+                        .HasColumnType("varchar(255)");
+
+                    b.HasKey("ClientId", "Specialization");
+
+                    b.ToTable("ClientSpecialization");
                 });
 
             modelBuilder.Entity("ENERGY_NOW_BE.Core.Entity.User", b =>
@@ -86,16 +101,9 @@ namespace ENERGY_NOW_BE.Infrastructure.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("ClientName")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("longtext");
-
-                    b.Property<int>("Cui")
-                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -108,7 +116,7 @@ namespace ENERGY_NOW_BE.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<bool>("IsValidClient")
+                    b.Property<bool>("IsAClient")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("LastName")
@@ -184,6 +192,26 @@ namespace ENERGY_NOW_BE.Infrastructure.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "a4a4b5b7-8d73-4f55-8e91-1ed9e437e2f5",
+                            Name = "USER",
+                            NormalizedName = "USER"
+                        },
+                        new
+                        {
+                            Id = "b6b6c9d9-e862-4fb5-9c2c-5e9c7e9781c3",
+                            Name = "CLIENT",
+                            NormalizedName = "CLIENT"
+                        },
+                        new
+                        {
+                            Id = "c8c8e1f1-f973-48d5-af3c-7e9c9e9781f4",
+                            Name = "ADMIN",
+                            NormalizedName = "ADMIN"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -292,6 +320,28 @@ namespace ENERGY_NOW_BE.Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("ENERGY_NOW_BE.Core.Entity.Client", b =>
+                {
+                    b.HasOne("ENERGY_NOW_BE.Core.Entity.User", "User")
+                        .WithMany("Client")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ENERGY_NOW_BE.Core.Entity.ClientSpecialization", b =>
+                {
+                    b.HasOne("ENERGY_NOW_BE.Core.Entity.Client", "Client")
+                        .WithMany("ClientSpecializations")
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Client");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -341,6 +391,16 @@ namespace ENERGY_NOW_BE.Infrastructure.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ENERGY_NOW_BE.Core.Entity.Client", b =>
+                {
+                    b.Navigation("ClientSpecializations");
+                });
+
+            modelBuilder.Entity("ENERGY_NOW_BE.Core.Entity.User", b =>
+                {
+                    b.Navigation("Client");
                 });
 #pragma warning restore 612, 618
         }
